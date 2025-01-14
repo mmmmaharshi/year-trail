@@ -2,7 +2,7 @@ import type { MetaTagsProps } from 'svelte-meta-tags';
 
 const title = 'Year Trail';
 const tagline = 'Counting Down the Days';
-const description = 'Watch the year progress through a visual journey.';
+const description = 'Watch the year progress through a visuals.';
 
 export const load = ({ url }) => {
 	const baseMetaTags = Object.freeze({

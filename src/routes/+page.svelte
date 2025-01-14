@@ -35,18 +35,16 @@
 </script>
 
 <div class="relative min-h-screen overflow-hidden">
-	<!-- Progress overlay -->
 	<div
-		class="bg-primary absolute inset-0 origin-top transition-transform duration-1000"
+		class="absolute inset-0 origin-top bg-primary transition-transform duration-1000"
 		style="transform: scaleY({progress / 100})"
 	></div>
 
-	<!-- Content -->
 	<div class="relative z-10 flex min-h-screen flex-col items-center justify-center">
-		<h1 class="text-base-content mb-4 font-mono text-8xl mix-blend-difference">
+		<h1 class="mb-4 font-mono text-8xl text-base-content mix-blend-difference">
 			{new Date().getFullYear()}
 		</h1>
-		<div class="text-base-content font-mono text-xl mix-blend-difference">
+		<div class="font-mono text-xl text-base-content mix-blend-difference">
 			{Math.round(displayedDays.current)} / {totalDays} days
 		</div>
 	</div>
