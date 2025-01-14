@@ -41,10 +41,10 @@
 	></div>
 
 	<div class="relative z-10 flex min-h-screen flex-col items-center justify-center">
-		<h1 class="mb-4 font-mono text-8xl text-base-content mix-blend-difference">
+		<h1 class="mb-4 text-8xl text-base-content mix-blend-difference">
 			{new Date().getFullYear()}
 		</h1>
-		<div class="font-mono text-xl text-base-content mix-blend-difference">
+		<div class="text-xl text-base-content mix-blend-difference">
 			{Math.round(displayedDays.current)} / {totalDays} days
 		</div>
 	</div>
