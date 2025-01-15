@@ -2,15 +2,11 @@
 	let { data } = $props();
 
 	import { onMount } from 'svelte';
-	import { Spring } from 'svelte/motion';
 
 	let totalDaysInYear: number = $state(0);
 	let daysPassed: number = $state(0);
 
-	const displayedDays = new Spring<number>(0, {
-		stiffness: 0.1,
-		damping: 0.8
-	});
+	let displayedDays = $state(0);
 
 	onMount(() => {
 		const currentYear = new Date().getFullYear();
@@ -27,7 +23,7 @@
 
 		daysPassed = Math.round((new Date().getTime() - startOfYear.getTime()) / (1000 * 60 * 60 * 24));
 
-		displayedDays.target = elapsedDays;
+		displayedDays = elapsedDays;
 	});
 </script>
 
@@ -55,7 +51,7 @@
 			</div>
 			<div class="mt-3 flex items-center justify-between text-xs">
 				<p class="text-base-content">{new Date().getFullYear()}</p>
-				<p>{Math.round(displayedDays.current)} / {totalDaysInYear} days</p>
+				<p>{totalDaysInYear - displayedDays} days left</p>
 			</div>
 		</div>
 	</main>

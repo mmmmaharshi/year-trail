@@ -1,14 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Spring } from 'svelte/motion';
 
-	let progress: number = 0;
-
-	const displayedDays = new Spring<number>(0, {
-		stiffness: 0.1,
-		damping: 0.8
-	});
-	let totalDays: number = 0;
+	let progress: number = $state(0);
+	let displayedDays = $state(0);
+	let totalDays: number = $state(0);
 
 	function calculateProgress(): number {
 		const now: Date = new Date();
@@ -19,7 +14,7 @@
 
 		const elapsedDays: number = Math.floor(elapsed / (1000 * 60 * 60 * 24));
 		totalDays = Math.floor(total / (1000 * 60 * 60 * 24));
-		displayedDays.target = elapsedDays;
+		displayedDays = elapsedDays;
 
 		return (elapsed / total) * 100;
 	}
@@ -40,12 +35,15 @@
 		style="transform: scaleY({progress / 100})"
 	></div>
 
-	<div class="relative z-10 flex min-h-screen flex-col items-center justify-center">
+	<div
+		class="relative z-10 flex min-h-screen animate-fade-in-down flex-col items-center justify-center"
+	>
 		<h1 class="mb-4 text-8xl text-base-content mix-blend-difference">
 			{new Date().getFullYear()}
 		</h1>
 		<div class="text-xl text-base-content mix-blend-difference">
-			{Math.round(displayedDays.current)} / {totalDays} days
+			{Math.round(displayedDays)} /
+			{totalDays} days
 		</div>
 	</div>
 </div>
