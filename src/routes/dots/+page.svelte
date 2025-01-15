@@ -8,6 +8,19 @@
 
 	let displayedDays = $state(0);
 
+	function getOrdinalSuffix(day: number): string {
+		const suffixes = ['th', 'st', 'nd', 'rd'];
+		const v = day % 100;
+		return day + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
+	}
+
+	function formatDay(index: number): string {
+		const currentYear = new Date().getFullYear();
+		const date = new Date(currentYear, 0, index);
+		const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(date);
+		return `${weekday}, ${getOrdinalSuffix(index)} day`;
+	}
+
 	onMount(() => {
 		const currentYear = new Date().getFullYear();
 		const startOfYear = new Date(currentYear, 0, 1);
@@ -45,7 +58,7 @@
 						class="aspect-auto h-2 w-2 rounded-full {index < daysPassed
 							? 'bg-primary'
 							: 'bg-neutral'}"
-						title={`Day ${index + 1}`}
+						title={formatDay(index + 1)}
 					></div>
 				{/each}
 			</div>
