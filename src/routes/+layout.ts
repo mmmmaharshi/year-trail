@@ -3,6 +3,7 @@ import type { MetaTagsProps } from 'svelte-meta-tags';
 const title = 'Year Trail';
 const tagline = 'Counting Down the Days';
 const description = 'Watch the year progress through a visuals.';
+const favicon = '🌱';
 
 export const load = ({ url }) => {
 	const baseMetaTags = Object.freeze({
@@ -21,6 +22,7 @@ export const load = ({ url }) => {
 	}) satisfies MetaTagsProps;
 
 	return {
-		baseMetaTags
+		baseMetaTags,
+		favicon
 	};
 };

@@ -4,6 +4,7 @@ import type { MetaTagsProps } from 'svelte-meta-tags';
 const title = 'Year Dots';
 const tagline = 'Counting Down the Days Using Dots';
 const description = 'Watch the year progress through a dots.';
+const favicon = '🟢';
 
 export const load = (async () => {
 	const pageMetaTags = Object.freeze({
@@ -18,6 +19,7 @@ export const load = (async () => {
 	}) satisfies MetaTagsProps;
 
 	return {
-		pageMetaTags
+		pageMetaTags,
+		favicon
 	};
 }) satisfies PageLoad;

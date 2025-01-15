@@ -1,5 +1,6 @@
-import type { Config } from 'tailwindcss';
+import animations from '@midudev/tailwind-animations';
 import daisyui from 'daisyui/';
+import type { Config } from 'tailwindcss';
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -8,7 +9,7 @@ export default {
 		extend: {}
 	},
 
-	plugins: [daisyui],
+	plugins: [daisyui, animations],
 	daisyui: {
 		themes: ['forest']
 	}

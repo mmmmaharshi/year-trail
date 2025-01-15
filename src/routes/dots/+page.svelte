@@ -1,4 +1,6 @@
 <script lang="ts">
+	let { data } = $props();
+
 	import { onMount } from 'svelte';
 	import { Spring } from 'svelte/motion';
 
@@ -29,9 +31,16 @@
 	});
 </script>
 
+<svelte:head>
+	<link
+		rel="icon"
+		href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{data.favicon}</text></svg>"
+	/>
+</svelte:head>
+
 {#if totalDaysInYear > 0}
 	<main
-		class="container mx-auto flex h-full min-h-svh w-full max-w-screen-lg items-center justify-center"
+		class="container mx-auto flex h-full min-h-svh w-full max-w-screen-lg animate-blurred-fade-in items-center justify-center"
 	>
 		<div class="w-full max-w-xl px-5">
 			<div class="grid w-full grid-cols-[repeat(auto-fit,minmax(8px,1fr))] gap-3 lg:gap-5">
